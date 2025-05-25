@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Точка Тишины — Живое присутствие</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #ffe4d6 0%, #ffd1b3 100%);
+      color: #5a3e1b;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 40px;
+    }
+    header {
+      background: linear-gradient(135deg, #f9c6a6 0%, #f4a07a 100%);
+      padding: 50px 20px 70px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 6px 15px rgba(244,160,122,0.5);
+      overflow: hidden;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 0 0 30px 30px;
+      margin-bottom: 30px;
+    }
+    header::before,
+    header::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      background: #fff0e6;
+      filter: blur(80px);
+      z-index: 0;
+    }
+    header::before {
+      width: 250px;
+      height: 250px;
+      top: -100px;
+      left: -100px;
+    }
+    header::after {
+      width: 200px;
+      height: 200px;
+      bottom: -80px;
+      right: -80px;
+    }
+    .logo {
+      position: relative;
+      z-index: 1;
+      margin: 0 auto 20px;
+      width: 120px;
+      height: 120px;
+      border: 5px solid #f7b28b;
+      border-radius: 50%;
+      background: #fff6f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      color: #c47f54;
+      box-shadow: 0 4px 15px rgba(196,127,84,0.3);
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.8em;
+      margin: 0 0 10px;
+      color: #6e3f1a;
+      text-shadow: 1px 1px 3px #f0b08c88;
+      position: relative;
+      z-index: 1;
+    }
+    header p {
+      font-size: 1.3em;
+      margin: 0;
+      color: #7c5539;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      z-index: 1;
+      position: relative;
+    }
+    .container {
+      max-width: 900px;
+      background: #fff6f0cc;
+      border-radius: 25px;
+      box-shadow: 0 12px 35px rgba(244,160,122,0.25);
+      padding: 40px 30px 60px;
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      color: #c47f54;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      font-size: 2.6em;
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+    p, ul, li {
+      font-size: 1.1em;
+      line-height: 1.6em;
+      color: #5a3e1b;
+    }
+    ul {
+      padding-left: 20px;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+    li {
+      margin-bottom: 12px;
+    }
+    blockquote {
+      font-style: italic;
+      color: #7c5539;
+      border-left: 5px solid #f4a07a;
+      padding-left: 15px;
+      margin: 20px 40px;
+      font-size: 1.1em;
+      background: #fff0e6;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(244,160,122,0.1);
+    }
+    .button {
+      display: block;
+      background: #c47f54;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.3em;
+      width: fit-content;
+      margin: 0 auto;
+      box-shadow: 0 6px 15px rgba(196,127,84,0.6);
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background: #a86b3a;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9em;
+      color: #a87b50;
+      font-weight: 600;
+    }
+    img.hero-image {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(196,127,84,0.25);
+      margin-bottom: 40px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Медитация */
+    .meditation {
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: center;
+      background: #fff0e6;
+      padding: 25px 30px;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(244,160,122,0.15);
+    }
+    .meditation audio {
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 12px;
+      outline: none;
+    }
+    /* Карточки афирмаций */
+    .affirmations {
+      max-width: 700px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #f9d7b1;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(196,127,84,0.25);
+      color: #5a3e1b;
+      font-weight: 600;
+      font-size: 1.1em;
+      text-align: center;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(196,127,84,0.4);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Т</div>
+    <h1>Точка Тишины</h1>
+    <p>Живое присутствие здесь и сейчас</p>
+  </header>
+
+  <div class="container">
+    <img class="hero-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Расслабляющая природа" />
+    <h2>О медитации</h2>
+    <p>Погрузитесь в состояние глубокой тишины и присутствия с помощью наших онлайн-медитаций. Это путь к внутреннему балансу, спокойствию и ясности.</p>
+
+    <div class="meditation">
+      <h3>Медитация «Тишина» — 1 минута</h3>
+      <audio controls>
+        <source src="https://
